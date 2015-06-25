@@ -35,9 +35,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryActor.cs" />
     <Compile Include="RepositoryBase.cs" />
-    <Compile Include="RepositoryFirm.cs" />
-    <Compile Include="RepositoryStudent.cs" />
+    <Compile Include="RepositoryDirector.cs" />
+    <Compile Include="RepositoryFilm.cs" />
+    <Compile Include="RepositoryFilmType.cs" />
+    <Compile Include="RepositoryProducer.cs" />
+    <Compile Include="RepositoryUser.cs" />
+    <Compile Include="RepositoryWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

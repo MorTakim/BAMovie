@@ -35,9 +35,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceActor.cs" />
     <Compile Include="ServiceBase.cs" />
-    <Compile Include="ServiceFirm.cs" />
-    <Compile Include="ServiceStudent.cs" />
+    <Compile Include="ServiceDirector.cs" />
+    <Compile Include="ServiceFilm.cs" />
+    <Compile Include="ServiceFilmType.cs" />
+    <Compile Include="ServiceProducer.cs" />
+    <Compile Include="ServiceUser.cs" />
+    <Compile Include="ServiceWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

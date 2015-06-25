@@ -34,9 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BusinessActor.cs" />
     <Compile Include="BusinessBase.cs" />
-    <Compile Include="BusinessFirm.cs" />
-    <Compile Include="BusinessStudent.cs" />
+    <Compile Include="BusinessDirector.cs" />
+    <Compile Include="BusinessFilm.cs" />
+    <Compile Include="BusinessFilmType.cs" />
+    <Compile Include="BusinessProducer.cs" />
+    <Compile Include="BusinessUser.cs" />
+    <Compile Include="BusinessWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
