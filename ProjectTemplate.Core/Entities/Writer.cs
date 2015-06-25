@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectTemplate.Core.Entities
 {
-    public class Writer : PersonBase, IEntityKey<int>
+    public class Writer : PersonBase
     {
         public int Id { get; set; }
 

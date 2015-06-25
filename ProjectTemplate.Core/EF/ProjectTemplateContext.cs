@@ -24,7 +24,13 @@ namespace ProjectTemplate.Core.EF
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //gerekli ise
-            //modelBuilder.Configurations.Add(new StudentMap());
+            modelBuilder.Configurations.Add(new ActorMap());
+            modelBuilder.Configurations.Add(new DirectorMap());
+            modelBuilder.Configurations.Add(new FilmMap());
+            modelBuilder.Configurations.Add(new FilmTypeMap());
+            modelBuilder.Configurations.Add(new ProducerMap());
+            modelBuilder.Configurations.Add(new UserMap());
+            modelBuilder.Configurations.Add(new WriterMap());
         }
     }
 }

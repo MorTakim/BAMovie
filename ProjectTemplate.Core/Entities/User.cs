@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProjectTemplate.Core.Entities
 {
-    public class User : PersonBase, IEntityKey<int>
+    public class User : PersonBase
     {
         public int Id { get; set; }
         public string Password { get; set; }
