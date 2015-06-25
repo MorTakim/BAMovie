@@ -12,8 +12,8 @@ namespace ProjectTemplate.Business
 {
     public class BusinessActor : BusinessBase<Actor>, IBusinessActor
     {
-        private readonly IRepositoryStudent _repositoryActor;
-        public BusinessActor(IRepositoryBase<Actor> repositoryBase, IUnitOfWork uow, IRepositoryStudent repositoryActor)
+        private readonly IRepositoryActor _repositoryActor;
+        public BusinessActor(IRepositoryBase<Actor> repositoryBase, IUnitOfWork uow, IRepositoryActor repositoryActor)
             : base(repositoryBase, uow)
         {
             _repositoryActor = repositoryActor;

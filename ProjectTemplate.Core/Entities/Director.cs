@@ -7,19 +7,14 @@ using System.Threading.Tasks;
 
 namespace ProjectTemplate.Core.Entities
 {
-    public class Director:IEntityKey<int>,PersonBase
+    public class Director : PersonBase, IEntityKey<int>
     {
 
-        public int Id {get;set; }
-        public string ImagePath { get; set; }
-        public virtual ICollection<Film> DirectorFilms { get; set; }
+        public int Id { get; set; }
+        public virtual ICollection<Film> Movies { get; set; }
         public override string ToString()
         {
             return Name + ' ' + SurName;
         }
-        
-
-
-       
     }
 }

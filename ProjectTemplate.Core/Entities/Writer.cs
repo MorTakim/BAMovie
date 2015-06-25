@@ -11,6 +11,6 @@ namespace ProjectTemplate.Core.Entities
     {
         public int Id { get; set; }
 
-        public virtual ICollection<Film> Films { get; set; }
+        public virtual ICollection<Film> Movies { get; set; }
     }
 }

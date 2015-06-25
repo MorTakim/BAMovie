@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace ProjectTemplate.Core.Entities
 {
 
-    public class Actor:IEntityKey<int>,PersonBase
+    public class Actor: PersonBase, IEntityKey<int>
     {
         public int Id { get; set; }
-        public virtual ICollection<Film> Filmler { get; set; }
+        public virtual ICollection<Film> Movies { get; set; }
     }
 }

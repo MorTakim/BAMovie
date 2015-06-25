@@ -11,5 +11,6 @@ namespace ProjectTemplate.Core.Entities
         public string Name { get; set; }
         public string SurName { get; set; }
         public DateTime BirthDate { get; set; }
+        public string ImagePath { get; set; }
     }
 }

@@ -11,18 +11,13 @@ namespace ProjectTemplate.Core.Entities
     public class Producer : IEntityKey<int>
     {
         public int Id { get; set; }
-        [Required]
         public string CompanyName { get; set; }
-        [Required]
         public string ChairManName { get; set; }
-        [Required]
         public DateTime FormDate { get; set; }
-        [Required]
         public string WebSite { get; set; }
-        [Required]
         public string CompanyAddress { get; set; }
 
 
-        public virtual ICollection<Film> Films { get; set; }
+        public virtual ICollection<Film> Movies { get; set; }
     }
 }

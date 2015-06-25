@@ -72,7 +72,11 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Writer.cs" />
     <Compile Include="Enums\Role.cs" />
-    <Compile Include="FluentMappings\StudentMap.cs" />
+    <Compile Include="FluentMappings\FilmMap.cs" />
+    <Compile Include="FluentMappings\FilmTypeMap.cs" />
+    <Compile Include="FluentMappings\PersonBaseMap.cs" />
+    <Compile Include="FluentMappings\ProducerMap.cs" />
+    <Compile Include="FluentMappings\UserMap.cs" />
     <Compile Include="IoC\Castle\CastleDependencyContainer.cs" />
     <Compile Include="IoC\DependencyContainer.cs" />
     <Compile Include="IoC\DependencyScope.cs" />
