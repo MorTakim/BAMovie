@@ -9,8 +9,6 @@ namespace ProjectTemplate.Core.Entities
 {
     public class Writer : PersonBase
     {
-        public int Id { get; set; }
-
         public virtual ICollection<Film> Movies { get; set; }
     }
 }

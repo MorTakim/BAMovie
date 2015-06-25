@@ -17,7 +17,7 @@ namespace ProjectTemplate.Core.Entities
         [Required,MaxLength(20)]
         public string Name { get; set; }
         [Required,MaxLength(20)]
-        public string SurName { get; set; }
+        public string Surname { get; set; }
         public DateTime BirthDate { get; set; }
         public string ImagePath { get; set; }
 

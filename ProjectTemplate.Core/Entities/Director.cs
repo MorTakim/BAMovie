@@ -9,12 +9,10 @@ namespace ProjectTemplate.Core.Entities
 {
     public class Director : PersonBase
     {
-
-        public int Id { get; set; }
         public virtual ICollection<Film> Movies { get; set; }
         public override string ToString()
         {
-            return Name + ' ' + SurName;
+            return Name + ' ' + Surname;
         }
     }
 }

@@ -34,10 +34,11 @@ namespace WFA_Test
         {
             _serviceActor.Insert(new Actor()
             {
-                Name = "Yavuz"
+                Name = "Yavuz",
+                Surname = "Bayram"
             });
 
-            Actor yb = _serviceActor.GetAll().FirstOrDefault(x => x.Name == "Yavuz");
+            Actor yb = _serviceActor.GetAll().FirstOrDefault();
 
             MessageBox.Show(yb.Name);
         }
