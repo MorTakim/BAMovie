@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using ProjectTemplate.Core.Entities;
+@model List<User>
+
+<div class="panel panel-success">
+    <div class="panel-heading">Kullanıcı İşlemleri</div>
+    <div class="panel-body">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.ActionLink("Kullanıcı Ekle", "Add", "User")</th>
+                    <th>RESİM</th>
+                    <th>AD</th>
+                    <th>SOYAD</th>
+                    <th>ROL</th>
+                    <th>MAİL</th>
+
+                </tr>
+            </thead>
+            @foreach (User item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Düzenle", "Edit", new { Id = item.Id })
+                        @Html.ActionLink("Sil", "Delete", new { Id = item.Id })
+                    </td>
+                    <td>
+                        @*<img src="@Html.Display(item.ImagePath)" alt="IMAGES" />*@
+                    </td>
+                    <td>@item.Name</td>
+                    <td>@item.Surname</td>
+                    <td>@item.Role</td>
+                    <td>@item.Email</td>
+                </tr>
+            }
+            
+        </table>
+    </div>
+</div>

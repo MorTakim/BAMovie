@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "FilmDetail";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@using ProjectTemplate.Core.Entities;;
+@model Film
+
+@section Body{
+    <div class="reviews-section">
+        <h3 class="head">Movie Reviews</h3>
+        <div class="col-md-12 reviews-grids">
+            <div class="review">
+                <div class="movie-pic">
+                    <a href="single.html"><img src="@Model.PosterImgPath" alt="" /></a>
+                </div>
+                <div class="review-info">
+                    <a class="span" href="single.html">@Model.Name</i></a>
+                    <p class="dirctr"><a href="">Reagan Gavin Rasquinha, </a>TNN, Mar 12, 2015, 12.47PM IST</p>
+
+                    <p class="info">Yayın Tarihi:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Model.PublishDate</p>
+                    <p class="info">IMDB Puanı: &nbsp;&nbsp;&nbsp;&nbsp;@Model.ImdbPoint</p>
+                </div>
+                <div class="clearfix"></div><br /><br /><br />
+            </div>
+        </div>
+
+
+        <div class="col-md-12 reviews-grids">
+            <div class="featured">
+                <h3>Oyuncular</h3>
+
+                <ul>
+                    @foreach (var item in Model.Actors)
+                    {
+                        <li>
+                            <a href="single.html"><img src="@item.ImagePath" alt="" /></a>
+                            <p>@item.Name @item.Surname</p>
+                        </li>
+                    }
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-12 reviews-grids">
+            <div class="featured">
+                <h3>Yönetmenler</h3>
+
+                <ul>
+                    @foreach (var item in Model.Directors)
+                    {
+                        <li>
+                            <a href="single.html"><img src="@item.ImagePath" alt="" /></a>
+                            <p>@item.Name @item.Surname</p>
+                        </li>
+                    }
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-12 reviews-grids">
+            <div class="featured">
+                <h3>Yazarlar</h3>
+
+                <ul>
+                    @foreach (var item in Model.Writers)
+                    {
+                        <li>
+                            <a href="single.html"><img src="@item.ImagePath" alt="" /></a>
+                            <p>@item.Name @item.Surname</p>
+                        </li>
+                    }
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-12 reviews-grids">
+            <div class="featured">
+                <h3>Yapımcılar</h3>
+
+                <ul>
+                    @foreach (var item in Model.Producers)
+                    {
+                        <li>
+                            <p>>@item.CompanyName</p>
+                            <p>@item.ChairManName</p>
+                        </li>
+                    }
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+}

@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@using ProjectTemplate.Core.Entities;
+@model User
+<br /><br /><br />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-lg-push-4">
+            <div class="panel panel-success">
+
+                <div class="panel-heading panel-info">Login</div>
+                @using (Html.BeginForm("Login", "User", FormMethod.Post))
+                {
+                    <div class="panel-body">
+                        <div role="form">
+                            <div class="form-group-sm">
+
+                                @Html.TextBoxFor(s => s.Email, new { @class = "form-control", name = "eMail", type = "email", required = "required", placeholder = "email@mail.com" })
+                                <br />
+                                @Html.TextBoxFor(s => s.Password, new { @class = "form-control", name = "password", type = "password", required = "required", placeholder = "Şifre" })
+                                <hr />
+                                @*@if (ViewData["Error"] != null)
+                                    {
+                                        @ViewBag.ErrorMsg;
+                                    }*@
+                                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                        <span class="sr-only">Hata:</span>
+                                        <span>@ViewBag.Message</span>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        @*<label class="checkbox-inline">
+                                <input type="checkbox" name="name" value="" class="checkbox-inline" /> Beni Hatırla
+                            </label>*@
+                        <input type="submit" name="name" value="Giriş Yap" class="btn" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

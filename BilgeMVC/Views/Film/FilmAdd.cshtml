@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "FilmAdd";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using ProjectTemplate.Core.Entities;
+@model Film
+
+<h2>Add</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-push-3">
+            <div class="panel panel-success">
+                <div class="panel-heading panel-info">Yeni Kullanıcı Ekle</div>
+                <div class="panel-body">
+                    <div role="form">
+                        <div class="form-group">
+                            @using (Html.BeginForm("FilmAdd", "Film", FormMethod.Post, new { enctype = "multipart/form-data", id = "FormContainer" }))
+                            {
+                                @Html.TextBoxFor(s => s.Name, new { @class = "form-control", id = "inputdefault", name = "name", required = "required", placeholder = "AD" })
+                                <br />
+                                @Html.TextBoxFor(s => s.ImdbPoint, new { @class = "form-control", name = "ImdbPoint", required = "required", placeholder = "Imdb Puan" })
+
+                                <br />
+                                @Html.TextBoxFor(s => s.Website, new { @class = "form-control", name = "Website", required = "required", placeholder = "Website" })
+                                <br />
+                                <span>Film Adı : </span><input type="file" id="InputFile" name="File" /> <br />
+                                <hr />
+                                <input type="submit" name="add" value="Kaydet" class="btn" />
+
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        width: 195px;
+    }
+
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+</style>
+<script>
+
+    if (document.getElementById("InputFile").value == "") {
+        document.getElementById("userimg").src = "../../img/user/defaultimg.png";
+    }
+    document.getElementById("InputFile").onchange = function () {
+        document.getElementById("userimg").src = this.value;
+    }
+
+</script>
+
+
+
+

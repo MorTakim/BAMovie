@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "FilmEdit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using ProjectTemplate.Core.Entities;
+@model Film
+<h2>Edit</h2>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">Kullanıcı Düzenle</div>
+    <div class="panel-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>AD</th>
+                    <th>Tarih</th>
+                    @*<th>ROL</th>*@
+                    <th>Puan</th>
+                    <th>Website</th>
+                    <th>Resim</th>
+                    <th>GÜNCELLE</th>
+                </tr>
+            </thead>
+            <tr>
+                @using (Html.BeginForm("FilmEdit", "Film", FormMethod.Post, new { enctype = "multipart/form-data", id = "FormContainer" }))
+                {
+                    @Html.HiddenFor(x => x.Id)
+                    <td>@Html.TextBoxFor(s => s.Name, new { @class = "form-control", @value = Model.Name, name = "name" })</td>
+                    <td><input type="date" name="txtPublishDate" id="txtPublishDate" value="" /></td>
+                    <td>@Html.TextBoxFor(s => s.ImdbPoint, new { @class = "form-control", @value = Model.ImdbPoint, name = "Imdb Puan" })</td>
+                    @*<td>@Html.DropDownListFor(s => s.Role, Enum.GetNames(typeof(ProjectTemplate.Core.Enums.Role)).Select(s => new SelectListItem { Text = s.ToString(), Value = s.ToString() })) </td>*@
+                    <td>@Html.TextBoxFor(s => s.Website, new { @class = "form-control", type = "text", @value = Model.Website, name = "Website" })</td>
+                    <td><input type="file" id="InputFile" name="File" /> <br /></td>
+                    <td><input type="submit" name="name" value="Güncelle" class="btn" /></td>
+                }
+            </tr>
+
+        </table>
+    </div>
+</div>
+

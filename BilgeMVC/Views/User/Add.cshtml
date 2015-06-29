@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using ProjectTemplate.Core.Entities;
+@model User
+
+<h2>Add</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-push-3">
+            <div class="panel panel-success">
+                <div class="panel-heading panel-info">Yeni Kullanıcı Ekle</div>
+                <div class="panel-body">
+                    <div role="form">
+                        <div class="form-group">
+                            @using (Html.BeginForm("Add", "User", FormMethod.Post))
+                            {
+                                <div class="col-lg-6 col-lg-push-6">
+                                    <img id="userimg" src="" width="195" height="195" class="img-thumbnail" />
+                                    <br /><br />
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Resim Ekle</span>
+                                        <input type="file" id="InputFile" accept="image/*" class="upload" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-lg-pull-6 ">
+                                    
+                                    @Html.TextBoxFor(s => s.Name, new { @class = "form-control", id = "inputdefault", name = "name", required = "required", placeholder = "AD" })
+                                    <br />
+                                    @Html.TextBoxFor(s => s.Surname, new { @class = "form-control", name = "surname", required = "required", placeholder = "Soyad" })
+
+                                    <br />
+                                    @Html.TextBoxFor(s => s.Password, new { @class = "form-control", name = "password", type = "password", required = "required", placeholder = "Şifre" })
+
+                                    @*<br />
+                                    @Html.TextBoxFor(s => s.Password, new { @class = "form-control", name = "password2", type = "password", required = "required", placeholder = "Tekrar Şifre" })*@
+
+                                    <br />
+                                    @Html.TextBoxFor(s => s.Email, new { @class = "form-control", name = "email", type = "email", required = "required", placeholder = "email@mail.com" })
+                                    <br />
+                                    @Html.TextBoxFor(s => s.BirthDate, new { @class = "form-control", name = "birthdate", type = "date", required = "required" })
+                                    <br />
+
+                                    
+                                    
+                                    <hr />
+                                    <input type="submit" name="add" value="Kaydet" class="btn" />
+                                   
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        width: 195px;
+    }
+
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+</style>
+<script>
+    
+    if (document.getElementById("InputFile").value == "") {
+        document.getElementById("userimg").src = "../../img/user/defaultimg.png";
+    }
+    document.getElementById("InputFile").onchange = function () {
+        document.getElementById("userimg").src = this.value;
+    }
+
+</script>
+
