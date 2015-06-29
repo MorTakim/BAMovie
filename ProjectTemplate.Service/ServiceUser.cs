@@ -18,5 +18,10 @@ namespace ProjectTemplate.Service
         {
             _businessUser = businessUser;
         }
+
+        public User LoginControl(string eMail, string password)
+        {
+            return _businessUser.LoginControl(eMail, password);
+        }
     }
 }

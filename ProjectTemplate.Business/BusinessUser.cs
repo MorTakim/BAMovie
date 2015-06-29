@@ -19,5 +19,10 @@ namespace ProjectTemplate.Business
         {
             _repositoryUser = repositoryUser;
         }
+
+        public User LoginControl(string eMail, string password)
+        {
+            return _repositoryUser.LoginControl(eMail, password);
+        }
     }
 }

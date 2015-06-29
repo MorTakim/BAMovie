@@ -12,10 +12,11 @@ namespace ProjectTemplate.Business
 {
     public class BusinessDirector: BusinessBase<Director>, IBusinessDirector
     {
-        public BusinessDirector(IRepositoryBase<Director> repository, IUnitOfWork uow)
+        private readonly IRepositoryDirector _repositoryDirector; 
+        public BusinessDirector(IRepositoryBase<Director> repository, IUnitOfWork uow,IRepositoryDirector repositoryDirector)
             : base(repository, uow)
         {
-
+            _repositoryDirector = repositoryDirector;
         }
     
     }

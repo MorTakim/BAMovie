@@ -15,5 +15,10 @@ namespace ProjectTemplate.Repository
             : base(repository)
         {
         }
+
+        public User LoginControl(string eMail, string password)
+        {
+            return (Repository.Select<User>().FirstOrDefault(s => s.Email == eMail && s.Password == password));
+        }
     }
 }

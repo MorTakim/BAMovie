@@ -10,6 +10,6 @@ namespace ProjectTemplate.Core.Abstractions.Repository
 {
     public interface IRepositoryUser : IBusinessBase<User>
     {
-        //login control metod... coming soon
+        User LoginControl(string eMail, string password);
     }
 }

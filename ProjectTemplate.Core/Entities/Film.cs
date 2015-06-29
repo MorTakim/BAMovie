@@ -1,6 +1,8 @@
 ﻿using ProjectTemplate.Core.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +24,6 @@ namespace ProjectTemplate.Core.Entities
         public string Website { get; set; }
 
 
-        // Navigation
         public virtual ICollection<FilmType> FilmTypes { get; set; }
 
         public virtual ICollection<Actor> Actors { get; set; }

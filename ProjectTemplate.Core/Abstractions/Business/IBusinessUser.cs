@@ -9,6 +9,6 @@ namespace ProjectTemplate.Core.Abstractions.Business
 {
     public interface IBusinessUser:IBusinessBase<User>
     {
-        //login control metod... coming soon
+        User LoginControl(string eMail, string password);
     }
 }

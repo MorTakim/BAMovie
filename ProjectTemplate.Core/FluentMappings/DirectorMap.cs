@@ -1,6 +1,7 @@
 ﻿using ProjectTemplate.Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,12 @@ namespace ProjectTemplate.Core.FluentMappings
         {
 
             HasKey(t => t.Id);
+
+            // Properties
+            Property(t => t.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            HasMany<Film>(f => f.Movies).WithMany(a => a.Directors);
 
             //farkli tablo ismi verilmek istenirse
             ToTable("Director");

@@ -11,9 +11,11 @@ namespace ProjectTemplate.Service
 {
     public class ServiceActor : ServiceBase<Actor>, IServiceActor
     {
-         public ServiceActor(IBusinessBase<Actor> business)
-            : base(business)
+        private readonly IBusinessActor _businessActor;
+        public ServiceActor(IBusinessBase<Actor> businessBase, IBusinessActor businessActor)
+            : base(businessBase)
         {
+            _businessActor = businessActor;
         }
     }
 }

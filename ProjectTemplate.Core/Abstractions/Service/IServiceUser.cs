@@ -10,6 +10,6 @@ namespace ProjectTemplate.Core.Abstractions.Service
 {
     public interface IServiceUser : IBusinessBase<User>
     {
-        //login control metod... coming soon
+        User LoginControl(string eMail, string password);
     }
 }
