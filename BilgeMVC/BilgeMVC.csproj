@@ -164,12 +164,21 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActorController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DirectorController.cs" />
     <Compile Include="Controllers\FilmController.cs" />
+    <Compile Include="Controllers\FilmTypeController.cs" />
+    <Compile Include="Controllers\ProducerController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\WriterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ModelActor.cs" />
+    <Compile Include="Models\ModelFilm.cs" />
+    <Compile Include="Models\ModelProducer.cs" />
+    <Compile Include="Models\ModelWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +195,32 @@
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Film\FilmListele.cshtml" />
+    <Content Include="Views\FilmType\FilmTypeAdd.cshtml" />
+    <Content Include="Views\FilmType\FilmTypeEdit.cshtml" />
+    <Content Include="Views\FilmType\FilmTypeListele.cshtml" />
+    <Content Include="Views\Actor\Actor.cshtml" />
+    <Content Include="Views\Actor\Edit.cshtml" />
+    <Content Include="Views\Actor\FilmSelect.cshtml" />
+    <Content Include="Views\Actor\Insert.cshtml" />
+    <Content Include="Views\Director\Director.cshtml" />
+    <Content Include="Views\Director\Edit.cshtml" />
+    <Content Include="Views\Director\FilmSelect.cshtml" />
+    <Content Include="Views\Producer\Add.cshtml" />
+    <Content Include="Views\Producer\Edit.cshtml" />
+    <Content Include="Views\Producer\FilmSelect.cshtml" />
+    <Content Include="Views\Producer\Producer.cshtml" />
+    <Content Include="Views\Writer\Edit.cshtml" />
+    <Content Include="Views\Writer\Writer.cshtml" />
+    <Content Include="Views\Writer\WriterSelect.cshtml" />
+    <Content Include="Views\Shared\Partial\_ActorDetail.cshtml" />
+    <Content Include="Views\Shared\Partial\_Actors.cshtml" />
+    <Content Include="Views\Shared\Partial\_DirectorDetail.cshtml" />
+    <Content Include="Views\Shared\Partial\_Directors.cshtml" />
+    <Content Include="Views\Shared\Partial\_ProducerDetail.cshtml" />
+    <Content Include="Views\Shared\Partial\_Producers.cshtml" />
+    <Content Include="Views\Shared\Partial\_WriterDetail.cshtml" />
+    <Content Include="Views\Shared\Partial\_Writers.cshtml" />
+    <Content Include="Views\Film\FilmDetailAdd.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -196,7 +231,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjectTemplate.Application\ProjectTemplate.Application.csproj">

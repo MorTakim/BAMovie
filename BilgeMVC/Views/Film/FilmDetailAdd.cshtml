@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "FilmDetailAdd";
+}
+@using BilgeMVC.Models;
+@model ModelFilm
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+    <h1>Film Detay Ekle</h1>
+    <div>
+        <br /><br />
+        @using (Html.BeginForm("FilmDetailAdd", "Film", FormMethod.Post, new { enctype = "multipart/form-data", id = "FormContainer" }))
+        {
+
+            <span>Film</span><br />
+            @Html.DropDownListFor(x => x.Films, Model.Films.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString() }), "--- Bir Film Seçiniz ---")<br />
+            <br />
+            <span>Film Türleri</span><br />
+            @Html.ListBoxFor(x => x.FilmTypes, new MultiSelectList(Model.FilmTypes, "Id", "TypeName"), new { id = "listFilmType", Multiple = "multiple", Size = 15, style = "width: 100%;" })<br />
+            <br />
+            <span>Aktörler</span><br />
+            @Html.ListBoxFor(x => x.Actors, new MultiSelectList(Model.Actors, "Id", "FullName"), new { id = "listActor", Multiple = "multiple", Size = 15, style = "width: 100%;" })<br />
+            <br />
+            <span>Yönetmenler</span><br />
+            @Html.ListBoxFor(x => x.Directors, new MultiSelectList(Model.Directors, "Id", "FullName"), new { id = "listDirector", Multiple = "multiple", Size = 15, style = "width: 100%;" })<br />
+            <br />
+            <span>Yazarlar</span><br />
+            @Html.ListBoxFor(x => x.Writers, new MultiSelectList(Model.Writers, "Id", "FullName"), new { id = "listWriter", Multiple = "multiple", Size = 15, style = "width: 100%;" })<br />
+            <br />
+            <span>Yapımcılar</span><br />
+            @Html.ListBoxFor(x => x.Producers, new MultiSelectList(Model.Producers, "Id", "CompanyName"), new { id = "listProducer", Multiple = "multiple", Size = 15, style = "width: 100%;" })<br />
+            <br />
+
+            <input type="submit" value="Kaydet" />
+        }
+    </div>
+</body>
+</html>
+

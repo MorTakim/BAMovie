@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Director Listele";
+}
+@using ProjectTemplate.Core.Entities;
+@model List<Director>
+
+<h3>
+    @Html.ActionLink("Yeni", "Edit", new { Id = 0 }) |||
+    @Html.ActionLink("Tümünü Getir", "Director", "Director")
+</h3>
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">Film İşlemleri</div>
+    <div class="panel-body">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>BirthDay</th>
+                    <th>ImagePath</th>
+                    <th>Directore Gore Film</th>
+                </tr>
+            </thead>
+            @foreach (var direc in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink("Güncelle", "Edit", new { direc.Id })</td>
+
+                    <td>
+                        @using (Html.BeginForm("Delete", "Director", new { id = direc.Id }))
+                        {
+                            @Html.ActionLink("Sil", "Delete", new { direc.Id })
+                        }
+                    </td>
+                    <td>@direc.Id</td>
+                    <td>@direc.Name</td>
+                    <td>@direc.Surname</td>
+                    <td>@direc.BirthDate</td>
+                    <td><img src="@direc.ImagePath" height="50" /></td>
+                    <td>@Html.ActionLink("Filmlerini Getir", "FilmSelect", new { direc.Id })</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

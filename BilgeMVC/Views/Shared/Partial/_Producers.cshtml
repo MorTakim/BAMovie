@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "_Producers";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@using ProjectTemplate.Core.Entities;
+@model List<Producer>
+
+@section Body{
+    <div class="right-content">
+        <div class="right-content-heading">
+            <div class="right-content-heading-left">
+                <h3 class="head">Yapımcılar</h3>
+            </div>
+        </div>
+        <div class="content-grids">
+            @foreach (Producer item in Model)
+            {
+                <div class="content-grid">
+                    <a class="play-icon" href="@Url.Action("ProducerDetail", "Producer")/@item.Id">@item.CompanyName</a>
+                    <h3>@item.ChairManName</h3>
+                    <a class="button play-icon popup-with-zoom-anim" href="#small-dialog">Detay</a>
+                </div>
+            }
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+}

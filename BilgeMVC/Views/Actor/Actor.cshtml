@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Actor Listele";
+}
+@using BilgeMVC.Models;
+@model ModelActor
+
+
+<h3>@Html.ActionLink("Yeni Actor Ekle", "Insert", new { Id = 0 })</h3>
+
+<div class="panel panel-success">
+    <div class="panel-heading">Actor İşlemleri</div>
+    <div class="panel-body">
+       
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>BirthDay</th>
+                    <th>ImagePath</th>
+                    <th>Actor Films</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.Actors)
+            {
+                <tr>
+                    <td>@Html.ActionLink("Güncelle", "Edit", new { item.Id })</td>
+
+                    <td>
+                        @using (Html.BeginForm("Delete", "Actor", new { id = item.Id }))
+                        {
+                            @Html.ActionLink("Sil", "Delete", new { item.Id })
+
+                        }
+                    </td>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Surname</td>
+                    <td>@item.BirthDate</td>
+                    <td><img src="@item.ImagePath" height="50" /></td>
+                    <td>@Html.ActionLink("Filmlerini Getir", "FilmSelect", new { item.Id })</td>
+                </tr>
+
+            }
+        </table>
+    </div>
+</div>

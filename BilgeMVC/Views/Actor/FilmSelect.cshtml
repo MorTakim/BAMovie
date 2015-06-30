@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Oyuncu Film Listele";
+}
+@using BilgeMVC.Models;
+@model ModelActor
+
+<div class="panel panel-success">
+    <div class="panel-heading">Film İşlemleri</div>
+    <div class="panel-body">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Film Afiş</th>
+                    <th>Film Adı</th>
+                    <th>IMDB</th>
+                    <th>Yayın Tarihi</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.Films)
+            {
+                <tr>
+                    <td><img src="@item.PosterImgPath" width="50" height="50" /></td>
+                    <td>@item.Name</td>
+                    <td>@item.ImdbPoint</td>
+                    <td>@item.PublishDate</td>
+                </tr>
+
+
+            }
+        </table>
+    </div>
+</div>
+

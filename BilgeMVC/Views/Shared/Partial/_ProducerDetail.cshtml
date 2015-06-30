@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "_ProducerDetail";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@using ProjectTemplate.Core.Entities;;
+@model Producer
+
+@section Body{
+    <div class="reviews-section">
+        <h3 class="head">Yapımcı Detayları</h3>
+        <div class="col-md-12 reviews-grids">
+            <div class="review">
+                
+                <div class="review-info">
+                    <h2>@Model.CompanyName</h2><br /><br /><br />
+                    <h4 class="info">Kurucu :&nbsp; &nbsp;&nbsp;&nbsp;@Model.ChairManName</h4><br />
+                    <h4 class="info">Kuruluş Tarihi:&nbsp; &nbsp;&nbsp;&nbsp;@Model.FormDate.ToShortDateString()</h4><br />
+                    <h4 class="info">Adres :&nbsp; &nbsp;&nbsp;&nbsp;@Model.CompanyAddress</h4><br />
+                </div>
+                <div class="clearfix"></div><br /><br /><br />
+            </div>
+        </div>
+
+        <div class="col-md-12 reviews-grids">
+            <div class="featured">
+                <h3><a href="@Url.Action("Films", "Film")">Filmler</a></h3>
+                <ul>
+                    @foreach (var item in Model.Movies)
+                    {
+                        <li>
+                            <a href="@Url.Action("FilmDetail", "Film")/@item.Id"><img src="@item.PosterImgPath" alt="" /></a>
+                            <p>@item.Name</p>
+                        </li>
+                    }
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+}

@@ -11,10 +11,12 @@ namespace BilgeMVC.Controllers
     public class FilmController : BaseController
     {
         private readonly IServiceFilm _serviceFilm;
+        private readonly IServiceActor _serviceActor;
 
-        public FilmController(IServiceFilm serviceFilm)
+        public FilmController(IServiceFilm serviceFilm,IServiceActor serviceActor)
         {
             _serviceFilm = serviceFilm;
+            _serviceActor = serviceActor;
         }
 
         public PartialViewResult Films()
@@ -117,6 +119,22 @@ namespace BilgeMVC.Controllers
         public ActionResult FilmListele()
         {
             return View(_serviceFilm.GetAll());
+        }
+
+        [HttpPost]
+        public ActionResult FilmDetailAdd(FormCollection collection)
+        {
+            Film film = (Film)_serviceFilm.GetById(Convert.ToInt32(collection.Get("Films")));
+
+
+            foreach (var item in collection.GetValue("Actors").AttemptedValue.Split(','))
+            {
+                film.Actors.Add(_serviceActor.GetById(Convert.ToInt32(item)));
+            }
+                                   
+            _serviceFilm.Update(film);
+
+            return RedirectToAction("FilmDetailAdd", "Film");
         }
 
     }

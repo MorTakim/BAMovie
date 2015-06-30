@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Writer Edit";
+}
+@using ProjectTemplate.Core.Entities;
+@model Writer
+
+<div class="panel panel-success">
+    <div class="panel-heading">Senarist Düzenle</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Edit", "Writer", FormMethod.Post))
+        {
+            <label>Name</label><br />
+            @Html.TextBoxFor(Writer => Writer.Name, new { id = "txtwrtname" })
+            @Html.ValidationMessageFor(Model => Model.Name)<br />
+            <label>Surname</label><br />
+            @Html.TextBoxFor(Writer => Writer.Surname, new { id = "txtwrtsurname" })<br />
+            <label>BirthDate</label><br />
+            @Html.TextBoxFor(model => model.BirthDate, "{0:yyyy-MM-dd}", new { type = "date" })<br /><br />
+            <input type="file" name="ImagePath" value="" /><br />
+            <input type="submit" value="Kaydet/Güncelle" />
+        }
+    </div>
+</div>

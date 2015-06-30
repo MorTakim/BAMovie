@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "FilmTypeListele";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@using ProjectTemplate.Core.Entities;
+@model List<FilmType>
+
+<div class="panel panel-success">
+    <div class="panel-heading">Film Tür İşlemleri</div>
+    <div class="panel-body">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.ActionLink("FilmType Ekle", "FilmTypeAdd", "Film")</th>
+                    <th>AD</th>
+
+                </tr>
+            </thead>
+            @foreach (FilmType item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Düzenle", "FilmTypeEdit", new { Id = item.Id })
+                        @Html.ActionLink("Sil", "FilmTypeDelete", new { Id = item.Id })
+                    </td>
+                    <td>@item.TypeName</td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

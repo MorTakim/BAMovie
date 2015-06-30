@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "FilmTypeAdd";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using ProjectTemplate.Core.Entities;
+@model FilmType
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-push-3">
+            <div class="panel panel-success">
+                <div class="panel-heading panel-info">Yeni Kullanıcı Ekle</div>
+                <div class="panel-body">
+                    <div role="form">
+                        <div class="form-group">
+                            @using (Html.BeginForm("FilmTypeAdd", "FilmType", FormMethod.Post))
+                            {
+                                @Html.TextBoxFor(s => s.TypeName, new { @class = "form-control", id = "inputdefault", name = "typename", required = "required", placeholder = "AD" })
+                                <br />
+                                <hr />
+                                <input type="submit" name="add" value="Kaydet" class="btn" />
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

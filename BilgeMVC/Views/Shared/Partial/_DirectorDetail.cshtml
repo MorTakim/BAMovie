@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "_DirectorDetail";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@using ProjectTemplate.Core.Entities;;
+@model Director
+
+@section Body{
+    <div class="reviews-section">
+        <h3 class="head">Oyuncu Detayları</h3>
+        <div class="col-md-12 reviews-grids">
+            <div class="review">
+                <div class="movie-pic">
+                    <img src="@Model.ImagePath" alt="" />
+                </div>
+                <div class="review-info">
+                    <h2>@Model.Name @Model.Surname</h2><br /><br /><br />
+                    <h4 class="info">Doğum Tarihi:&nbsp; &nbsp;&nbsp;&nbsp;@Model.BirthDate.ToShortDateString()</h4><br />
+                </div>
+                <div class="clearfix"></div><br /><br /><br />
+            </div>
+        </div>
+
+        <div class="col-md-12 reviews-grids">
+            <div class="featured">
+                <h3><a href="@Url.Action("Films", "Film")">Filmler</a></h3>
+                <ul>
+                    @foreach (var item in Model.Movies)
+                    {
+                        <li>
+                            <a href="@Url.Action("FilmDetail", "Film")/@item.Id"><img src="@item.PosterImgPath" alt="" /></a>
+                            <p>@item.Name</p>
+                        </li>
+                    }
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+}

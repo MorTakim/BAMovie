@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "WriterSelect";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using BilgeMVC.Models;
+@model ModelWriter
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">Writer İşlemleri</div>
+    <div class="panel-body">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Film Afiş</th>
+                    <th>Film Adı</th>
+                    <th>IMDB</th>
+                    <th>Yayın Tarihi</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.Films)
+            {
+                <tr>
+                    <td><img src="@item.PosterImgPath" height="50" /></td>
+                    <td>@item.Name</td>
+                    <td>@item.ImdbPoint</td>
+                    <td>@item.PublishDate</td>
+                </tr>
+
+
+            }
+        </table>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,56 @@
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Oyuncu Ekle";
+}
+@using ProjectTemplate.Core.Entities;
+@model Actor
+
+<div class="panel panel-success">
+    <div class="panel-heading">Oyuncu Güncelle</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Insert", "Actor", FormMethod.Post, new { enctype = "multipart/form-data", id = "FormContainer" }))
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Name, new { @class = "form-control", name = "name", required = "required", placeholder = "Ýsim giriniz..", pattern = "[a-zA-ZÇÞÐÜÖÝçþðüöý]" })
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Surname)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Surname, new { @class = "form-control", name = "surname", required = "required", placeholder = "Soyisim giriniz..", pattern = "[a-zA-ZÇÞÐÜÖÝçþðüöý]" })
+                    @Html.ValidationMessageFor(model => model.Surname)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.BirthDate)
+                </div>
+                <div class="editor-field">
+                    <input type="date" name="txtBirthDate" id="txtBirthDate" value="" class=" txtaccount" pattern="\d{1,2}/\d{1,2}/\d{4}" /><br /><br />
+                    @Html.ValidationMessageFor(model => model.BirthDate)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ImagePath)
+                </div>
+                <div class="editor-field">
+                    <input type="file" id="InputFile" name="File" /> <br /><br />
+                    @Html.ValidationMessageFor(model => model.ImagePath)
+                </div>
+                <p>
+                    <input type="submit" value="Oyuncu Ekle" />
+                </p>
+            </fieldset>
+
+        }
+        <div>
+
+        </div>
+    </div>
+</div>
+

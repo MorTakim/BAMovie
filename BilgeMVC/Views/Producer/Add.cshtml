@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Producer Add";
+}
+@using ProjectTemplate.Core.Entities;
+
+@model Producer
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">Yapımcı Ekle</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Add", "Producer", FormMethod.Post))
+        {
+
+            @Html.Label("Kurum Adı : ")
+            @Html.TextBoxFor(x => x.CompanyName, new { id = "txtCompanyName" })<br />
+            @Html.Label("Kurum Başkanı : ")
+            @Html.TextBoxFor(x => x.ChairManName, new { id = "txtChairManName" })<br />
+            @Html.Label("Kuruluş Tarihi : ")
+            @Html.TextBoxFor(model => model.FormDate, "{0:yyyy-MM-dd}", new { type = "date" })<br />
+            @Html.Label("Web Sitesi : ")
+            @Html.TextBoxFor(x => x.WebSite, new { id = "txtWebSite" })<br />
+            @Html.Label("Kurum Adresi : ")
+            @Html.TextBoxFor(x => x.CompanyAddress, new { id = "txtCompanyAddress" })<br />
+            @Html.ValidationSummary();
+            <input type="submit" value="Kaydet" id="guncelle" />
+        }
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Producer Listele ";
+}
+@using ProjectTemplate.Core.Entities;
+
+
+@model IEnumerable<Producer>
+
+<h3>
+    @Html.ActionLink("Yeni", "Add", "Producer") ||| 
+    @Html.ActionLink("Tümünü Getir", "Producers", "Producer")
+</h3>
+
+<div class="panel panel-success">
+    <div class="panel-heading">Producer İşlemleri</div>
+    <div class="panel-body">
+
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                    <th>KN</th>
+                    <th>Kurum Adı</th>
+                    <th>Kurum Başkanı</th>
+                    <th>Kuruluş Tarihi</th>
+                    <th>Web Sitesi</th>
+                    <th>Kurum Adresi</th>
+                    <th>Yapımcı Filmleri</th>
+                </tr>
+                @foreach (var prd in Model)
+                {
+                    <tr>
+                        <td>@Html.ActionLink("Güncelle", "Edit", new { prd.Id })</td>
+
+                        <td>
+                            @Html.ActionLink("Sil", "Delete", new { prd.Id })
+                        </td>
+                        <td>@prd.Id</td>
+                        <td>@prd.CompanyName</td>
+                        <td>@prd.ChairManName</td>
+                        <td>@prd.FormDate.ToString("dd.MM.yyyy")</td>
+                        <td>@prd.WebSite</td>
+                        <td>@prd.CompanyAddress</td>
+                        <td>@Html.ActionLink("Filmlerini Getir", "FilmSelect", new { prd.Id })</td>
+                    </tr>
+                }
+        </table>
+    </div>
+</div>

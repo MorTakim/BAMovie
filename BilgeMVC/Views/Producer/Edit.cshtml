@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Producer Edit";
+}
+@using ProjectTemplate.Core.Entities;
+
+@model Producer
+
+
+
+<div class="panel panel-success">
+    <div class="panel-heading">Yapımcı Güncelle</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Edit", "Producer", FormMethod.Post))
+        {
+            @Html.Label("Kurum Adı : ")
+            @Html.TextBoxFor(x => x.CompanyName, new { id = "txtCompanyName", tabindex = "1" })<br />
+            @Html.Label("Kurum Başkanı : ")
+            @Html.TextBoxFor(x => x.ChairManName, new { id = "txtChairManName", tabindex = "2" })<br />
+            @Html.Label("Kuruluş Tarihi : ")
+            @Html.TextBoxFor(model => model.FormDate, "{0:yyyy-MM-dd}", new { type = "date" })<br />
+            @Html.Label("Web Sitesi : ")
+            @Html.TextBoxFor(x => x.WebSite, new { id = "txtWebSite", tabindex = "4" })<br />
+            @Html.Label("Kurum Adresi : ")
+            @Html.TextBoxFor(x => x.CompanyAddress, new { id = "txtCompanyAddress", tabindex = "5" })<br />
+            @Html.ValidationSummary();
+            <input type="submit" value="Güncelle" id="guncelle" />
+        }
+    </div>
+</div>

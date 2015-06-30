@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Director Editle";
+}
+
+@using ProjectTemplate.Core.Entities;
+@model  Director
+
+<div class="panel panel-success">
+    <div class="panel-heading">Yönetmen Güncelle</div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Edit", "Director", FormMethod.Post))
+        {
+            <label>Name</label><br />
+            @Html.TextBoxFor(Director => Director.Name, new { id = "txtdirecname", pattern = "^([a-zA-ZÇŞĞÜÖİçşğüöı]+)$", required = "required" })<br />
+
+            <label>Surname</label><br />
+            @Html.TextBoxFor(Director => Director.Surname, new { id = "txtdirecsurname", pattern = "^([a-zA-ZÇŞĞÜÖİçşğüöı]+)$", required = "required" })<br />
+
+            <label>Birh Date</label><br />
+            @Html.TextBoxFor(model => model.BirthDate, "{0:yyyy-MM-dd}", new { type = "date" })
+            <br /><br />
+            <label>Image</label><br />
+            <input type="file" id="InputFile" name="ImagePath" /> <br /><br />
+            <input type="submit" value="Kaydet/Güncelle" /><br />
+        }
+    </div>
+</div>
+

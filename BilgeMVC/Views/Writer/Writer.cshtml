@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Writer listele";
+}
+@using ProjectTemplate.Core.Entities
+@model List<Writer>
+
+<h3>
+    @Html.ActionLink("Yeni", "Edit", new { Id = 0 }) ||| 
+    @Html.ActionLink("Tümünü Getir", "Index", "Writer")
+</h3>
+
+<div class="panel panel-success">
+    <div class="panel-heading">Writer İşlemleri</div>
+    <div class="panel-body">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>BirthDay</th>
+                    <th>ImagePath</th>
+                    <th>Yazarın FilmLeri</th>
+                </tr>
+            </thead>
+            @foreach (var wrt in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink("Güncelle", "Edit", new { wrt.Id })</td>
+
+                    <td>
+                        @Html.ActionLink("Sil", "Delete", new { id = wrt.Id })
+                    </td>
+                    <td>@wrt.Id</td>
+                    <td>@Html.ActionLink(wrt.Name, "WriterDetail", "WriterDetail", new { id = wrt.Id }, null)</td>
+                    <td>@wrt.Surname</td>
+                    <td>@wrt.BirthDate</td>
+                    <td>@wrt.ImagePath</td>
+                    <td>@Html.ActionLink("Filmlerini Getir", "WriterSelect", new { wrt.Id })</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
